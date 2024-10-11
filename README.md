@@ -17,20 +17,17 @@ Before you begin, ensure you have met the following requirements:
 
 ## Setup Instructions
 Clone the Repository: Clone this repository to your local machine using Git:
-
   ```bash
   git clone <repository-url>
   cd <repository-name>
 
 Install Dependencies: Use Maven to install the required dependencies:
-  
 ```bash
   mvn install
 
 Configure Test Data: The test data is located in src/test/resources/testdata.json and can be modified according to your needs. Ensure the flight search data is accurate for the tests you want to run.
 
 Configure Application Settings: Update the configuration settings in src/test/resources/config.properties to set the base URL and desired browser. For example:
-
   ```bash
   baseUrl=https://www.expedia.com/Flights
   browser=firefox
@@ -39,7 +36,6 @@ Configure Application Settings: Update the configuration settings in src/test/re
 
 ## Running Tests
 To run the tests, use the following command:
-  
   ```bash
   mvn test
 
