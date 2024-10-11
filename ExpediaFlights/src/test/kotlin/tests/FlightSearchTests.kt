@@ -92,7 +92,7 @@ class FlightSearchTests {
         Assert.assertTrue(actualReturningDate.equals(expectedReturningDateString),
             "Returning dates don't match")
     }
-    
+
     @AfterClass
     fun tearDown() {
        DriverFactory.quitDriver()
