@@ -1,49 +1,32 @@
 # Selenium Flight Search Tests
-
 This repository contains Selenium test automation code for searching flights on Expedia.
-
 ## Prerequisites
-
 Before you begin, ensure you have met the following requirements:
-
 - **macOS**: Ensure you are using macOS for running the tests.
 - **Java**: You must have Java Development Kit (JDK) installed (version 11 or later). You can check your Java version with the following command:
-  ```bash
-  java -version
-
-- Maven: Apache Maven is required to manage dependencies and run the project. You can install it using Homebrew:
-  ```bash
-  brew install maven
-
+ `java -version`
+- **Maven**: Apache Maven is required to manage dependencies and run the project. You can install it using Homebrew:
+  `brew install maven`
 ## Setup Instructions
-1. Clone the Repository: Clone this repository to your local machine using Git:
-  ```bash
-  git clone <repository-url>
-  cd <repository-name>
+1. **Clone the Repository**: Clone this repository to your local machine using Git:
+   `git clone <repository-url>`
+   `cd <repository-name>`
+2. **Install Dependencies**: Use Maven to install the required dependencies:
+`mvn install`
+3. **Configure Test Data**: The test data is located in src/test/resources/testdata.json and can be modified according to your needs. Ensure the flight search data is accurate for the tests you want to run.
 
-2. Install Dependencies: Use Maven to install the required dependencies:
-  ```bash
-  mvn install
-
-3. Configure Test Data: The test data is located in src/test/resources/testdata.json and can be modified according to your needs. Ensure the flight search data is accurate for the tests you want to run.
-
-4. Configure Application Settings: Update the configuration settings in src/test/resources/config.properties to set the base URL and desired browser. For example:
-  ```bash
-  baseUrl=https://www.expedia.com/Flights
-  browser=firefox
-  browserOptions=--private
-  waitTime=10
+4. **Configure Application Settings**: Update the configuration settings in src/test/resources/config.properties to set the base URL and desired browser. For example:
+  `baseUrl=https://www.expedia.com/Flights`
+ ` browser=firefox`
+  `browserOptions=--private`
+  `waitTime=10`
 
 ## Running Tests
 To run the tests, use the following command:
-  ```bash
-  mvn test
-
+`mvn test`
 This command will execute all the test cases defined in the project. Note that the WebDriver will be automatically downloaded and configured using WebDriverManager.
-
 ## Test Data
 The following test data is used in the tests located in src/test/resources/testdata.json:
-
 {
   "departureCity": "Orlando, FL (MCO)",
   "arrivalCity": "New York, NY (JFK)",
@@ -53,8 +36,7 @@ The following test data is used in the tests located in src/test/resources/testd
     "adults": 2
   }
 }
-
-## Explanation of Test Data:
+### Explanation of Test Data:
 - departureCity: The city from which the flight departs.
 - arrivalCity: The destination city.
 - daysFromTodayDeparture: The number of days from today for the departure date.
