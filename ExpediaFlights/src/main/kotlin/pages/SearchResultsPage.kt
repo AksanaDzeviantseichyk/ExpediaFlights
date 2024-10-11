@@ -1,5 +1,6 @@
 package pages
 
+import config.ConfigManager
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.WebElement
@@ -9,6 +10,7 @@ import java.time.Duration
 
 class SearchResultsPage(private val driver: WebDriver) {
 
+    private val wait = WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getWaitTime()))
     private val flyingFromFieldLokator = By.xpath("//button[contains(@aria-label, 'Flying from')]")
     private val flyingToFieldLokator = By.xpath("//button[contains(@aria-label, 'Flying to')]")
     private val departingFieldLokator = By.xpath("//button[contains(@aria-label, 'Departing')]")
@@ -40,7 +42,6 @@ class SearchResultsPage(private val driver: WebDriver) {
         get() = driver.findElement(firstSearchResultLocator)
 
     fun isSearchResultsPageOpen(departureCity: String, arrivalCity: String): Boolean {
-        val wait = WebDriverWait(driver, Duration.ofSeconds(10))
         wait.until(ExpectedConditions.invisibilityOfElementLocated(loadingBarLokator))
         val expectedCity = extractCityCode(departureCity) + " to " + extractCityCode(arrivalCity) + " flights"
         return driver.title == expectedCity
@@ -51,7 +52,6 @@ class SearchResultsPage(private val driver: WebDriver) {
     }
 
     fun getDepartureAirport(): String{
-        val wait = WebDriverWait(driver, Duration.ofSeconds(10))
         wait.until { driver.findElement(flyingFromFieldLokator).isDisplayed }
         val text = flyingFromField.text
         return text
@@ -88,7 +88,6 @@ class SearchResultsPage(private val driver: WebDriver) {
 
     fun clickFirstSelectButton() {
         firstSelectButton.click()
-        val wait = WebDriverWait(driver, Duration.ofSeconds(10))
         wait.until(ExpectedConditions.invisibilityOfElementLocated(loadingBarLokator))
     }
 

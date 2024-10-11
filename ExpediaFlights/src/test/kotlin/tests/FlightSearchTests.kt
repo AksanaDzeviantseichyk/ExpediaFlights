@@ -27,7 +27,7 @@ class FlightSearchTests {
         val searchFlightsPage = SearchFlightsPage(driver)
         Assert.assertTrue(searchFlightsPage.isSearchFlightsPageOpen(), "Flight Search Page don't open")
 
-//        //Input search criteria
+        //Input search criteria
         val testData = JsonDataReader.getFlightSearchData()
         searchFlightsPage.clickLeavingFromField()
         searchFlightsPage.enterTextToLeavingFromInputField(testData.departureCity)
@@ -42,7 +42,7 @@ class FlightSearchTests {
         searchFlightsPage.increaseAdults(testData.travelers.adults - numberOfAdults)
         searchFlightsPage.clickTrevelersSelectorDoneButton()
 
-//        //Click on the Search button to submit the flight search.
+        //Click on the Search button to submit the flight search.
         searchFlightsPage.clickSearchButton()
 
         //Verify search results:

@@ -1,5 +1,6 @@
 package pages
 
+import config.ConfigManager
 import org.openqa.selenium.*
 import org.openqa.selenium.support.ui.WebDriverWait
 import java.time.Duration
@@ -8,7 +9,8 @@ import java.time.format.DateTimeFormatter
 
 class SearchFlightsPage(private val driver: WebDriver) {
 
-    val title = "Cheap Flights, Plane Tickets & Airline Deals - Expedia"
+    private val title = "Cheap Flights, Plane Tickets & Airline Deals - Expedia"
+    private val wait = WebDriverWait(driver, Duration.ofSeconds(ConfigManager.getWaitTime()))
     private val leavingFromFieldLokator = By.cssSelector("button[aria-label='Leaving from']")
     private val leavingFromInputFieldLokator = By.xpath("//*[@id='search-location-input-field']//input")
 
@@ -70,7 +72,6 @@ class SearchFlightsPage(private val driver: WebDriver) {
     }
 
     fun enterTextToLeavingFromInputField(value: String) {
-        val wait = WebDriverWait(driver, Duration.ofSeconds(10))
         wait.until { driver.findElement(leavingFromInputFieldLokator).isDisplayed }
         leavingFromInputField.click()
         leavingFromInputField.sendKeys(value)
@@ -82,7 +83,6 @@ class SearchFlightsPage(private val driver: WebDriver) {
     }
 
     fun enterTextToGoingToInputField(value: String) {
-        val wait = WebDriverWait(driver, Duration.ofSeconds(10))
         wait.until { driver.findElement(goingToInputFieldLokator).isDisplayed }
         goingToInputField.click()
         goingToInputField.sendKeys(value)
@@ -105,8 +105,6 @@ class SearchFlightsPage(private val driver: WebDriver) {
     }
 
     fun clickDatesPickerDoneButton() {
-        //(driver as JavascriptExecutor).executeScript("arguments[0].scrollIntoView(true);", datesPickerDoneButton)
-        //datesPickerDoneButton.click()
         (driver as JavascriptExecutor).executeScript("arguments[0].click();", datesPickerDoneButton)
     }
 
