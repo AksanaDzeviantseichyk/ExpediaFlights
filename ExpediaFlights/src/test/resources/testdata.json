@@ -1,0 +1,9 @@
+{
+  "departureCity": "Orlando, FL (MCO)",
+  "arrivalCity": "New York, NY (JFK)",
+  "daysFromTodayDeparture": 10,
+  "daysFromDepartureDate": 5,
+  "travelers": {
+    "adults": 2
+  }
+}
