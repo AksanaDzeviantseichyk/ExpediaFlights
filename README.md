@@ -22,7 +22,7 @@ Clone the Repository: Clone this repository to your local machine using Git:
   cd <repository-name>
 
 Install Dependencies: Use Maven to install the required dependencies:
-```bash
+  ```bash
   mvn install
 
 Configure Test Data: The test data is located in src/test/resources/testdata.json and can be modified according to your needs. Ensure the flight search data is accurate for the tests you want to run.
