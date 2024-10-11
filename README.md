@@ -12,32 +12,36 @@ Before you begin, ensure you have met the following requirements:
   java -version
 
 - Maven: Apache Maven is required to manage dependencies and run the project. You can install it using Homebrew:
-
-brew install maven
+  ```bash
+  brew install maven
 
 ## Setup Instructions
 Clone the Repository: Clone this repository to your local machine using Git:
 
-git clone <repository-url>
-cd <repository-name>
+  ```bash
+  git clone <repository-url>
+  cd <repository-name>
 
 Install Dependencies: Use Maven to install the required dependencies:
-
-mvn install
+  
+```bash
+  mvn install
 
 Configure Test Data: The test data is located in src/test/resources/testdata.json and can be modified according to your needs. Ensure the flight search data is accurate for the tests you want to run.
 
 Configure Application Settings: Update the configuration settings in src/test/resources/config.properties to set the base URL and desired browser. For example:
 
-baseUrl=https://www.expedia.com/Flights
-browser=firefox
-browserOptions=--private
-waitTime=10
+  ```bash
+  baseUrl=https://www.expedia.com/Flights
+  browser=firefox
+  browserOptions=--private
+  waitTime=10
 
 ## Running Tests
 To run the tests, use the following command:
-
-mvn test
+  
+  ```bash
+  mvn test
 
 This command will execute all the test cases defined in the project. Note that the WebDriver will be automatically downloaded and configured using WebDriverManager.
 
